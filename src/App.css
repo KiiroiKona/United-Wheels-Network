@@ -1,38 +1,352 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+body, html, #root {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #e1e1e1;
+  color: #222;
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Navbar Section */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111;
+  padding: 15px 20px;
+  box-shadow: 0 5px 10px #111;
+}
+
+.navbar-logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: #e8e8e8;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 30px;
+}
+
+.navbar-links li a, .navbar-links li {
+  text-decoration: none;
+  color: #e8e8e8;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover, .navbar-links li:hover {
+  color: #ffd900;
+}
+
+/* Home Section */
+.home-scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
+
+.home-section {
+  scroll-snap-align: start;
+  height: 100vh;
+  padding: 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.video-section {
+  position: relative;
+}
+
+.background-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #e8e8e8;
+  text-shadow:
+  3px 3px 5px #030303,
+  0 0 1em #111,
+  0 0 0.2em #111;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.overlay p {
+  font-size: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.dark-section {
+  background-color: #111;
+  color: #e8e8e8;
+  padding: 60px;
+  text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.car-week-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.car-week-image {
+  box-shadow: 0 0 15px #e6e6e6;
+  width: 1000px;
+  height: auto;
+  border-radius: 16px;
+}
+
+.car-week-text {
+  max-width: 500px;
+  text-align: center;
+}
+
+.explore-section {
+  background-color: #111;
+  padding: 40px;
+  text-align: center;
+  color: #e8e8e8;
+}
+
+.explore-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #3b3b3b;
+  padding: 5px 20px;
+  margin: 10px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: #b78d03;
+}
+
+/* Gallery Section */
+.gallery-container {
+  padding: 40px;
+  text-align: center;
+}
+
+.gallery-title {
+  padding-bottom: 1rem;
+  font-size: 2.5rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  gap: 30px;
+}
+
+.gallery-card {
+  background: rgb(239, 239, 239);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  text-align: center;
+  height: 350px;
+  width: 450px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.gallery-card h4 {
+  font-size: 20px;
+  font-weight: bold;
+  padding-bottom: 2.5rem;
+}
+
+/* Gallery Card Click Menu Section */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: rgb(239, 239, 239);
+  padding: 20px;
+  max-width: 1000px;
+  width: 80%;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 600px;
+  object-fit: cover;
+  margin-block: 20px;
+}
+
+button {
+  background-color: #3b3b3b;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #b78d03;
+}
+
+/* The rest Section */
+.events-page, .about-container, .login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 3rem;
+}
+
+/* Admin Panel Section */
+.admin-container {
+  padding: 40px;
+  text-align: center;
+}
+
+.admin-form-panel {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.form-group {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.input-field {
+  width: 20rem;
+}
+
+.image-grid, .car-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 20px;
+}
+
+.image-preview {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 3rem;
+  margin-inline: auto;
+}
+
+.image-item, .car-item, .image-preview {
+  background-color: white;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 300px;
+  transition: transform .3s;
+}
+
+.car-item-details, .modal-details {
+  contain: paint;
+}
+
+.image-thumbnail, .car-item-image, .image-preview-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.image-item:hover, .car-item:hover {
+  transform: scale(1.1);
+}
+
+.admin-image-card h5 {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.admin-container button {
+  background-color: #3b3b3b;
+  padding: 5px 10px;
+  margin-inline: 10px;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.admin-container button:hover {
+  background-color: #b78d03;
 }
