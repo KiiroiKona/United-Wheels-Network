@@ -321,6 +321,11 @@ button:hover {
   text-align: center;
 }
 
+.admin-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
 .admin-form-panel {
   display: flex;
   flex-direction: column;

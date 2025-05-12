@@ -115,7 +115,7 @@ function Admin() {
             ))}
           </div>
         </div>
-        <button className="button" onClick={handleAddCar}>Add to Gallery</button>
+        <button className="btn btn-success" onClick={handleAddCar}>Add to Gallery</button>
       </div>
 
       {newCar.image && (
@@ -153,7 +153,7 @@ function Admin() {
             className="input-field"
           />
         </div>
-        <button className="button" onClick={handleAddEvent}>Add Event</button>
+        <button className="btn btn-success" onClick={handleAddEvent}>Add Event</button>
       </div>
 
       <div className="admin-panel-category-list">
