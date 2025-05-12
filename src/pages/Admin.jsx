@@ -65,6 +65,13 @@ function Admin() {
     }
   };
 
+  // Handle deleting events
+  const handleDeleteEvent = (index) => {
+    const updatedEvents = events.filter((_, i) => i !== index);
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
+
   const isEventValid = (event) => {
     return event.title && event.date && event.description;
   };
@@ -77,6 +84,7 @@ function Admin() {
         <h3 className="form-heading">Add New Car</h3>
         <div className="form-group">
           <input
+           maxlength="40"
             type="text"
             placeholder="Car Name"
             value={newCar.name}
@@ -137,7 +145,8 @@ function Admin() {
           />
         </div>
         <div className="form-group">
-          <textarea maxlength="250"
+          <textarea 
+            maxlength="250"
             placeholder="Event Description"
             value={newEvent.description}
             onChange={(e) => setNewEvent({ ...newEvent, description: e.target.value })}
@@ -147,32 +156,35 @@ function Admin() {
         <button className="button" onClick={handleAddEvent}>Add Event</button>
       </div>
 
-      <div className="car-list">
-        <h3 className="car-list-heading">Cars in Gallery</h3>
-        <div className="car-grid">
-          {gallery.map((car, index) => (
-            <div key={index} className="car-item">
-              <img src={car.image} alt={car.name} className="car-item-image" />
-              <h4 className="car-item-name">{car.name}</h4>
-              <p className="car-item-details">{car.details}</p>
-              <button className="button" onClick={() => handleDeleteCar(index)}>Delete</button>
-              <button className="button" onClick={() => handleSelectCarOfTheWeek(car)}>Set as Car of the Week</button>
-            </div>
-          ))}
+      <div className="admin-panel-category-list">
+        <div className="car-list">
+          <h3 className="car-list-heading">Cars in Gallery</h3>
+          <div className="car-grid">
+            {gallery.map((car, index) => (
+              <div key={index} className="car-item">
+                <img src={car.image} alt={car.name} className="car-item-image" />
+                <h4 className="car-item-name">{car.name}</h4>
+                <p className="car-item-details">{car.details}</p>
+                <button className="button" onClick={() => handleDeleteCar(index)}>Delete</button>
+                <button className="button" onClick={() => handleSelectCarOfTheWeek(car)}>Set as Car of the Week</button>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div className="event-list">
-        <h3 className="event-list-heading">Upcoming Events</h3>
-        <ul className="event-list-ul">
-          {events.map((event, index) => (
-            <li key={index} className="event-item">
-              <h4 className="event-item-title">{event.title}</h4>
-              <p className="event-item-date">{event.date}</p>
-              <p className="event-item-description">{event.description}</p>
-            </li>
-          ))}
-        </ul>
+        <div className="event-list">
+          <h3 className="event-list-heading">Upcoming Events</h3>
+          <ul className="event-list-ul">
+            {events.map((event, index) => (
+              <li key={index} className="event-item">
+                <h4 className="event-item-title">{event.title}</h4>
+                <p className="event-item-date">{event.date}</p>
+                <p className="event-item-description">{event.description}</p>
+                <button className="button" onClick={() => handleDeleteEvent(index)}>Delete</button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

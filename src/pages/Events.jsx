@@ -10,17 +10,25 @@ function Events() {
   }, []);
 
   return (
-    <div className="events-page">
-      <h2>Upcoming Events</h2>
+    <div className="events-container">
+      <h2 className="events-title">Upcoming Events</h2>
       {events.length > 0 ? (
-        events.map((event, index) => (
-          <div key={index} className="event-item">
-            <h3>{event.title}</h3>
-            <p>{event.date} - {event.location}</p>
-          </div>
-        ))
+        <div className="events-grid">
+          {events.map((event, index) => (
+            <div key={index} className="event-card">
+              <h3 className="event-title">{event.title}</h3>
+              <p className="event-date">{event.date}</p>
+              {event.location && (
+                <p className="event-location">{event.location}</p>
+              )}
+              {event.description && (
+                <p className="event-description">{event.description}</p>
+              )}
+            </div>
+          ))}
+        </div>
       ) : (
-        <p>No upcoming events at the moment.</p>
+        <p className="no-events-message">No upcoming events at the moment.</p>
       )}
     </div>
   );

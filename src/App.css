@@ -137,7 +137,7 @@ a {
 }
 
 .car-week-text {
-  max-width: 500px;
+  max-width: 900px;
   text-align: center;
 }
 
@@ -267,6 +267,54 @@ button:hover {
   padding: 3rem;
 }
 
+/* Events Page */
+.events-container {
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  text-align: center;
+}
+
+.events-title {
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.event-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  text-align: left;
+}
+
+.event-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #1a1a1a;
+}
+
+.event-date, .event-location, .event-description {
+  margin: 5px 0;
+  color: #555;
+}
+
+.no-events-message {
+  color: #777;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
 /* Admin Panel Section */
 .admin-container {
   padding: 40px;
@@ -277,6 +325,48 @@ button:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.admin-panel-category-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  padding: 2rem;
+  max-height: 550px;
+}
+
+.car-list {
+  grid-area: 1 / 1 / 2 / 2;
+  width: 650px;
+  border: 2px solid rgb(98, 98, 98);
+  border-radius: 16px;
+  display: inline-block;
+  min-height: 500px;
+  padding-top: 10px;
+  overflow-y: auto;
+}
+
+.event-list {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  width: auto;
+  padding: 10px;
+  border: 2px solid rgb(98, 98, 98);
+  border-radius: 16px;
+  display: inline-block;
+  overflow-y: auto;
+}
+
+.event-item {
+  list-style-type: none;
+  overflow-y: auto;
+  max-height:inherit;
 }
 
 .form-group {
@@ -306,7 +396,7 @@ button:hover {
   margin-inline: auto;
 }
 
-.image-item, .car-item, .image-preview {
+.image-item, .car-item, .image-preview, .event-item {
   background-color: white;
   padding: 10px;
   margin-top: 10px;
@@ -317,7 +407,7 @@ button:hover {
   transition: transform .3s;
 }
 
-.car-item-details, .modal-details {
+.car-item-details, .modal-details, .event-item-description {
   contain: paint;
 }
 
